@@ -1,9 +1,11 @@
 package test.news
 
 import android.app.Application
+import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
 import test.news.di.appModule
+import test.news.localdb.localDbModule
 import test.news.network.getApiModule
 import test.news.network.model.ApiConfig
 import test.news.presentation.activity.activityModule
@@ -21,6 +23,7 @@ class App : Application() {
 
     private fun initKoin() {
         startKoin {
+            androidContext(this@App)
             modules(
                 listOf(
                     appModule,
@@ -33,6 +36,7 @@ class App : Application() {
                             platform = BuildConfig.Platform
                         )
                     ),
+                    localDbModule,
                     activityModule,
                     fragmentModule
 

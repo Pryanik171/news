@@ -2,13 +2,17 @@ package test.news.presentation.fragment.newslist
 
 import io.reactivex.schedulers.Schedulers
 import ru.digipeople.logger.LoggerFactory
+import test.news.localdb.repository.NewsRepository
 import test.news.network.ApiWorker
 import test.news.presentation.viewmodel.BaseViewModel
 
 /**
  * @author Grigoriy Pryamov
  */
-class NewsListViewModel(private val apiWorker: ApiWorker) : BaseViewModel() {
+class NewsListViewModel(
+    private val apiWorker: ApiWorker,
+    private val newsRepository: NewsRepository
+) : BaseViewModel() {
 
     private val logger = LoggerFactory.getLogger(NewsListViewModel::class.java)
 

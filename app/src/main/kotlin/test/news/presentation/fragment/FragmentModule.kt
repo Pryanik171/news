@@ -11,6 +11,6 @@ import test.news.presentation.fragment.newslist.NewsListViewModel
  */
 val fragmentModule = module {
     scope(named<NewsListFragment>()) {
-        viewModel { NewsListViewModel(get()) }
+        viewModel { NewsListViewModel(get(), get()) }
     }
 }
