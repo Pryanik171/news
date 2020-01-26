@@ -13,6 +13,12 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        // Константы
+        buildConfigField('String', 'BaseUrl', '"https://newsapi.org/v2/everything"')
+        buildConfigField('String', 'Platform', '"Android"')
+        buildConfigField('String', 'FromDate', '"2019-04-00"')
+        buildConfigField('String', 'SortType', '"publishedAt"')
+        buildConfigField('String', 'ApiKey', '"26eddb253e7840f988aec61f2ece2907"')
     }
     buildTypes {
         release {
@@ -32,6 +38,9 @@ android {
 }
 
 dependencies {
+    // Utils
+    implementation project(':network')
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'

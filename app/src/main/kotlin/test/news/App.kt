@@ -4,6 +4,8 @@ import android.app.Application
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
 import test.news.di.appModule
+import test.news.network.getApiModule
+import test.news.network.model.ApiConfig
 import test.news.presentation.activity.activityModule
 import test.news.presentation.fragment.fragmentModule
 
@@ -23,7 +25,16 @@ class App : Application() {
                 listOf(
                     appModule,
                     activityModule,
-                    fragmentModule
+                    fragmentModule,
+                    getApiModule(
+                        ApiConfig(
+                            url = BuildConfig.BaseUrl,
+                            key = BuildConfig.ApiKey,
+                            startDate = BuildConfig.FromDate,
+                            sortType = BuildConfig.SortType,
+                            platform = BuildConfig.Platform
+                        )
+                    )
                 )
             )
             if (BuildConfig.DEBUG) androidLogger()

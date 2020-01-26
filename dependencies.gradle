@@ -17,6 +17,15 @@ ext {
         debugImplementation 'com.squareup.okhttp3:logging-interceptor:3.8.0'
     }
 
+    // Retrofit
+    depsRetrofit = dependencyGroup {
+        //Retrofit
+        api 'com.squareup.retrofit2:retrofit:2.4.0'
+        api 'com.squareup.retrofit2:converter-gson:2.4.0'
+        api 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+        implementation 'com.google.code.gson:gson:2.8.2'
+    }
+
     // Room without kapt
     depsRoomNoKapt = dependencyGroup {
         implementation "android.arch.persistence.room:runtime:1.1.1"
