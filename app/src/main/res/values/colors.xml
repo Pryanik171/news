@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+
+    <!--DefaultColors-->
+    <color name="colorPrimary">#69adff</color>
+    <color name="colorPrimaryDark">#4c9dff</color>
+    <color name="colorAccent">#ffffff</color>
+
+    <!--AppColors-->
+    <color name="appBlue">@color/colorPrimary</color>
+    <color name="appBlueDark">@color/colorPrimaryDark</color>
+    <color name="appWhite">@color/colorAccent</color>
+    <color name="appGray">#686868</color>
+    <color name="rippleLightTheme">#1f000000</color>
+
 </resources>

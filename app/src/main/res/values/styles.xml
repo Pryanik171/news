@@ -8,4 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="SplashActivityTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:background">@drawable/ll_bg_splash</item>
+        <item name="colorPrimary">@color/appBlue</item>
+        <item name="colorPrimaryDark">@color/appBlueDark</item>
+        <item name="colorAccent">@color/appWhite</item>
+    </style>
+
 </resources>

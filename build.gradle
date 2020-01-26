@@ -25,6 +25,7 @@ allprojects {
         jcenter()
 
     }
+    apply from: "$rootProject.projectDir/dependencies.gradle"
 }
 
 task clean(type: Delete) {
