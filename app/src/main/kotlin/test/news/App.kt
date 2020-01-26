@@ -24,8 +24,6 @@ class App : Application() {
             modules(
                 listOf(
                     appModule,
-                    activityModule,
-                    fragmentModule,
                     getApiModule(
                         ApiConfig(
                             url = BuildConfig.BaseUrl,
@@ -34,7 +32,10 @@ class App : Application() {
                             sortType = BuildConfig.SortType,
                             platform = BuildConfig.Platform
                         )
-                    )
+                    ),
+                    activityModule,
+                    fragmentModule
+
                 )
             )
             if (BuildConfig.DEBUG) androidLogger()

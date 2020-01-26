@@ -45,7 +45,7 @@ class ResponseConverter() {
         if (retrofitResponse.isSuccessful) {
             // Если запрос завершился успешно
             val data = retrofitResponse.body()
-            return Response<E>(data, null, retrofitResponse.code())
+            return Response(data, null, retrofitResponse.code())
         } else {
             val code = retrofitResponse.code()
             logger.error("Error api error: $code")

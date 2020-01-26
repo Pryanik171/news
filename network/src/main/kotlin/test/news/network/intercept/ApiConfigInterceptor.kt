@@ -11,19 +11,17 @@ class ApiConfigInterceptor(private val apiConfig: ApiConfig) : Interceptor {
 
 
     override fun intercept(chain: Interceptor.Chain): Response {
-        val url = chain.request().url().newBuilder()
+        val request =  chain.request()
+        val url = request.url().newBuilder()
             .addQueryParameter(QUERY, apiConfig.platform)
             .addQueryParameter(FROM_DATE, apiConfig.startDate)
             .addQueryParameter(SORT, apiConfig.sortType)
             .addQueryParameter(API_KEY, apiConfig.key)
             .build()
-
-        val request = chain.request()
+        return chain.proceed(chain.request()
             .newBuilder()
             .url(url)
-            .build()
-
-        return chain.proceed(request)
+            .build())
     }
 
     companion object {

@@ -14,8 +14,8 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         // Константы
-        buildConfigField('String', 'BaseUrl', '"https://newsapi.org/v2/everything"')
-        buildConfigField('String', 'Platform', '"Android"')
+        buildConfigField('String', 'BaseUrl', '"https://newsapi.org/v2/"')
+        buildConfigField('String', 'Platform', '"android"')
         buildConfigField('String', 'FromDate', '"2019-04-00"')
         buildConfigField('String', 'SortType', '"publishedAt"')
         buildConfigField('String', 'ApiKey', '"26eddb253e7840f988aec61f2ece2907"')
