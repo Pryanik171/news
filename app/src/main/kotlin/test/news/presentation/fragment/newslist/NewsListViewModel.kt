@@ -2,16 +2,14 @@ package test.news.presentation.fragment.newslist
 
 import io.reactivex.schedulers.Schedulers
 import ru.digipeople.logger.LoggerFactory
-import test.news.localdb.repository.NewsRepository
-import test.news.network.ApiWorker
+import test.news.presentation.fragment.newslist.intercator.NewsListLoader
 import test.news.presentation.viewmodel.BaseViewModel
 
 /**
  * @author Grigoriy Pryamov
  */
 class NewsListViewModel(
-    private val apiWorker: ApiWorker,
-    private val newsRepository: NewsRepository
+    private val loader: NewsListLoader
 ) : BaseViewModel() {
 
     private val logger = LoggerFactory.getLogger(NewsListViewModel::class.java)
@@ -22,9 +20,9 @@ class NewsListViewModel(
     }
 
     private fun loadNews() {
-        apiWorker.getNews(1)
+        loader.get()
             .subscribeOn(Schedulers.io())
-            .subscribe({}, {})
+            .subscribe({}, { error -> logger.error(error) })
             .disposeOnCleared()
     }
 }

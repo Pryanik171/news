@@ -1,5 +1,6 @@
 package test.news.localdb.room.converter
 
+import android.util.Log
 import test.news.localdb.appmodel.News
 import test.news.localdb.room.converter.base.BaseConverter
 import test.news.localdb.room.entity.NewsEntity
@@ -26,7 +27,7 @@ class NewsConverter : BaseConverter<News, NewsEntity> {
             title = model.title,
             description = model.description,
             link = model.link,
-            image = model.image,
+            image = model.image!!,
             date = model.date
         )
     }

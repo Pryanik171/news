@@ -55,7 +55,7 @@ class ArticleEntity(
      * Ссылка на ищображение
      */
     @SerializedName("urlToImage")
-    val image: String,
+    val image: String?,
     /**
      * Дата нововсти
      */

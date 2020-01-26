@@ -19,6 +19,7 @@ android {
         buildConfigField('String', 'FromDate', '"2019-04-00"')
         buildConfigField('String', 'SortType', '"publishedAt"')
         buildConfigField('String', 'ApiKey', '"26eddb253e7840f988aec61f2ece2907"')
+        buildConfigField('int', 'SQLITE_STUDIO_SERVICE_PORT', '14600')
     }
     buildTypes {
         release {
@@ -57,4 +58,6 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    debugImplementation 'ru.digipeople.database:sqlitestudioservice:1.0.0'
+    releaseImplementation 'ru.digipeople.database:sqlitestudioservice-stub:1.0.0'
 }

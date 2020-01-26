@@ -25,7 +25,7 @@ class News(
     /**
      * Ссылка на ищображение
      */
-    val image: String,
+    val image: String?,
     /**
      * Дата нововсти
      */
