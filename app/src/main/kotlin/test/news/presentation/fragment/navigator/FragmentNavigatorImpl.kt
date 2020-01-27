@@ -69,9 +69,14 @@ class FragmentNavigatorImpl : FragmentNavInitializer,
     }
 
     override fun navigateBack() {
-        post {
-            fragmentManager.popBackStack()
+        if (fragmentManager.backStackEntryCount > 1) {
+            post {
+                fragmentManager.popBackStack()
+            }
+        } else {
+            activity.finish()
         }
+
     }
 
     private fun forward(fragment: () -> Fragment, screenKey: ScreenKey) {

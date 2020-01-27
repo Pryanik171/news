@@ -42,6 +42,10 @@ class MainActivity : AppCompatActivity(), KoinComponent {
         super.onPause()
     }
 
+    override fun onBackPressed() {
+        fragmentNavigator.navigateBack()
+    }
+
     companion object {
         fun callingIntent(context: Context) = Intent(context, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_CLEAR_TOP

@@ -72,7 +72,7 @@ class Source(
     /**
      * Id источника данных
      */
-    val id: Long? = null,
+    val id: String? = null,
     /**
      * Наименование
      */
