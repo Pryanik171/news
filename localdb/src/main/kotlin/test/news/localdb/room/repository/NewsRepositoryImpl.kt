@@ -22,4 +22,8 @@ class NewsRepositoryImpl(newsConverter: NewsConverter, dataBase: DataBase) :
            .map { entities -> converter.entityListToModelList(entities) }
            .toObservable()
     }
+
+    override fun getById(idNews: Long): News {
+        return converter.entityToModel(dao.getById(idNews))
+    }
 }

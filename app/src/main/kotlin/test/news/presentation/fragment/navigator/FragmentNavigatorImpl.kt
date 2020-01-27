@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import test.news.R
+import test.news.presentation.fragment.newsdetail.NewsDetailFragment
 import test.news.presentation.fragment.newslist.NewsListFragment
 import java.util.*
 
@@ -65,13 +66,14 @@ class FragmentNavigatorImpl : FragmentNavInitializer,
     }
 
     override fun navigateToNewsDetail(idNews: Long) {
-
+        forward({ NewsDetailFragment.newInstance(idNews) }, ScreenKey.NEWS_DETAIL)
     }
 
     override fun navigateBack() {
         if (fragmentManager.backStackEntryCount > 1) {
             post {
                 fragmentManager.popBackStack()
+                screenStack.pop()
             }
         } else {
             activity.finish()

@@ -30,7 +30,7 @@ class NewsListFragment : MvvmFragment<NewsListViewModel>(R.layout.fragment_news_
 
     private val logger = LoggerFactory.getLogger(NewsListFragment::class.java)
     override val viewModel: NewsListViewModel by currentScope.viewModel(this)
-    private val newsListAdapter = NewsListAdapter {}
+    private val newsListAdapter = NewsListAdapter { idNews -> viewModel.onNewsItemClicked(idNews) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         logger.trace("onCreate")

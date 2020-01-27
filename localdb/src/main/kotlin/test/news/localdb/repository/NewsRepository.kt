@@ -12,4 +12,9 @@ interface NewsRepository : ModelRepository<News, Long> {
      * Возвращает все News
      */
     fun getAllRx(): Observable<List<News>>
+
+    /**
+     * Новость по локальному ID
+     */
+    fun getById(idNews: Long): News
 }

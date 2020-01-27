@@ -12,27 +12,24 @@ import com.bumptech.glide.request.RequestOptions
  *
  * @author Grigoriy Pryamov
  */
-class ImageLoader(private val imageView: ImageView,
-                  @DrawableRes private val placeholder: Int,
-                  private val imageUrl: String?) {
+class ImageLoader(
+    private val imageView: ImageView,
+    @DrawableRes private val placeholder: Int,
+    private val imageUrl: String?
+) {
 
     private val requestOptions
         get() = RequestOptions
-            .diskCacheStrategyOf(DiskCacheStrategy.DATA)
+            .diskCacheStrategyOf(DiskCacheStrategy.RESOURCE)
             .placeholder(placeholder)
             .centerCrop()
-            .override(imageView.measuredWidth, imageView.measuredHeight)
 
     fun load() {
         onImageUriChanged()
     }
 
     private fun onImageUriChanged() {
-        if (imageView.measuredWidth == 0 || imageView.measuredHeight == 0) {
-            imageView.viewTreeObserver.addOnGlobalLayoutListener(globalLayoutListener)
-        } else {
-            onImageViewSizeDetermined()
-        }
+        onImageViewSizeDetermined()
     }
 
     private fun onImageViewSizeDetermined() {
@@ -44,7 +41,7 @@ class ImageLoader(private val imageView: ImageView,
 
     private val globalLayoutListener = object : ViewTreeObserver.OnGlobalLayoutListener {
         override fun onGlobalLayout() {
-            if (imageView.measuredWidth > 0 || imageView.measuredHeight > 0) {
+            if (imageView.measuredHeight > 0) {
                 onImageViewSizeDetermined()
                 imageView.viewTreeObserver.removeOnGlobalLayoutListener(this)
             }

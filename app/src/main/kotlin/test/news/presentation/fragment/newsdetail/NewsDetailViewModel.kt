@@ -1,42 +1,34 @@
-package test.news.presentation.fragment.newslist
+package test.news.presentation.fragment.newsdetail
 
 import androidx.lifecycle.MutableLiveData
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import ru.digipeople.logger.LoggerFactory
-import test.news.localdb.appmodel.News
 import test.news.presentation.fragment.navigator.FragmentNavigator
-import test.news.presentation.fragment.newslist.intercator.NewsListLoader
+import test.news.presentation.fragment.newsdetail.interactor.NewsDetailLoader
 import test.news.presentation.viewmodel.BaseViewModel
 
 /**
  * @author Grigoriy Pryamov
  */
-class NewsListViewModel(
-    private val loader: NewsListLoader,
+class NewsDetailViewModel(
+    private val detailLoader: NewsDetailLoader,
     private val fragmentNavigator: FragmentNavigator
 ) : BaseViewModel() {
 
-    private val logger = LoggerFactory.getLogger(NewsListViewModel::class.java)
+    private val logger = LoggerFactory.getLogger(NewsDetailViewModel::class.java)
 
-    val newsItemsLiveData = MutableLiveData<List<News>>()
+    var newsId: Long = 0L
+    val linkNewsLiveData = MutableLiveData<String>()
 
     override fun onStart() {
         logger.trace("onStart")
-        loadNews()
-    }
-
-    private fun loadNews() {
-        loader.get()
+        detailLoader.getLink(newsId)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ list ->
-                newsItemsLiveData.value = list
+            .subscribe({ link ->
+                linkNewsLiveData.value = link
             }, { error -> logger.error(error) })
             .disposeOnCleared()
-    }
-
-    fun onNewsItemClicked(newsId: Long) {
-        fragmentNavigator.navigateToNewsDetail(newsId)
     }
 }

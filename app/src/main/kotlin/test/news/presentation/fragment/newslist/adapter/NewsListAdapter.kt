@@ -15,7 +15,7 @@ import test.news.localdb.appmodel.News
 /**
  * @author Grigoriy Pryamov
  */
-class NewsListAdapter(private val itemMewsClicked: (idNews: Long) -> Unit) :
+class NewsListAdapter(private val itemMewsClicked: ((idNews: Long) -> Unit)?) :
     ListAdapter<News, RecyclerView.ViewHolder>(diffUtilCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -42,6 +42,12 @@ class NewsListAdapter(private val itemMewsClicked: (idNews: Long) -> Unit) :
         private val description = itemView.findViewById<TextView>(R.id.description)
         private val date = itemView.findViewById<TextView>(R.id.date)
         private val image = itemView.findViewById<ImageView>(R.id.image)
+
+        init {
+            itemView.setOnClickListener {
+                itemMewsClicked?.invoke(getItem(adapterPosition).id)
+            }
+        }
 
         fun bind(item: News) {
             title.text = item.title
