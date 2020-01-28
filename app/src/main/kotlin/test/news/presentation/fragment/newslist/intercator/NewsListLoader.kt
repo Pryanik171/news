@@ -51,7 +51,6 @@ class NewsListLoader(
                             add(ErrorNewsItem(userError.message))
                         }
                     }
-                currentPage = cacheList.size % DEFAULT_PAGE_LIST_COUNT
                 return@onErrorReturn Result(cacheList, userError)
             }
             .toObservable()
