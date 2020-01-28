@@ -27,10 +27,11 @@ class NewsListLoader(
     private var currentPage = DEFAULT_PAGE
 
     fun get(fetchCache: Boolean): Observable<Result> {
-        return if (fetchCache)
+        return if (fetchCache) {
+            currentPage = DEFAULT_PAGE
             loadFromCache()
                 .concatWith(loadFromApi(true))
-        else {
+        } else {
             loadFromApi(false)
         }
     }
