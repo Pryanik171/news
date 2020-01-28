@@ -18,12 +18,20 @@ class NewsRepositoryImpl(newsConverter: NewsConverter, dataBase: DataBase) :
     override val converter = newsConverter
 
     override fun getAllRx(): Observable<List<News>> {
-       return dao.getAllRx()
-           .map { entities -> converter.entityListToModelList(entities) }
-           .toObservable()
+        return dao.getAllRx()
+            .map { entities -> converter.entityListToModelList(entities) }
+            .toObservable()
+    }
+
+    override fun getAll(): List<News> {
+        return converter.entityListToModelList(dao.getAll())
     }
 
     override fun getById(idNews: Long): News {
         return converter.entityToModel(dao.getById(idNews))
+    }
+
+    override fun deleteAll() {
+        dao.deleteAll()
     }
 }

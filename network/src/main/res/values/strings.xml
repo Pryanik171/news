@@ -1,0 +1,4 @@
+<resources>
+    <string name="simple_api_error_no_internet_connection">Нет соединения с интернетом</string>
+    <string name="simple_api_error_unknown">Неизвестная ошибка</string>
+</resources>

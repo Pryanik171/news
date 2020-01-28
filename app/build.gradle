@@ -18,7 +18,7 @@ android {
         buildConfigField('String', 'Platform', '"android"')
         buildConfigField('String', 'FromDate', '"2019-04-00"')
         buildConfigField('String', 'SortType', '"publishedAt"')
-        buildConfigField('String', 'ApiKey', '"26eddb253e7840f988aec61f2ece2907"')
+        buildConfigField('String', 'ApiKey', '"72ef690d06be4e0db4b531bf77e4e47e"')
         buildConfigField('int', 'SQLITE_STUDIO_SERVICE_PORT', '14600')
     }
     buildTypes {
@@ -45,7 +45,7 @@ dependencies {
     implementation project(":localdb")
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.core:core-ktx:1.1.0'
@@ -61,8 +61,10 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     debugImplementation 'ru.digipeople.database:sqlitestudioservice:1.0.0'
     releaseImplementation 'ru.digipeople.database:sqlitestudioservice-stub:1.0.0'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
     implementation 'androidx.cardview:cardview:1.0.0'
     // Glide
     implementation 'com.github.bumptech.glide:glide:4.9.0'
+    implementation 'com.google.android.material:material:1.0.0'
 
 }

@@ -5,7 +5,7 @@ import test.news.localdb.appmodel.base.ModelWithId
 /**
  * @author Grigoriy Pryamov
  */
-class News(
+data class News(
     /**
      * Идентификатор карты
      */
@@ -30,4 +30,4 @@ class News(
      * Дата нововсти
      */
     val date: Long
-) : ModelWithId<Long>
+) : ModelWithId<Long>, NewsItem

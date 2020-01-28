@@ -7,11 +7,11 @@ class ApiException : Exception {
     /**
      * Http статус ответа
      */
-    private val statusCode: Int
+    val statusCode: Int
     /**
      * Ошибка API
      */
-    private val apiError: ApiError?
+    val apiError: ApiError?
 
     constructor(statusCode: Int) {
         this.statusCode = statusCode

@@ -45,7 +45,7 @@ class ArticleEntity(
      * Описание
      */
     @SerializedName("description")
-    val description: String,
+    val description: String?,
     /**
      * Ссылка на детализацию
      */

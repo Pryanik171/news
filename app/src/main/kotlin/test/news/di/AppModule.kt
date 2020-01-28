@@ -5,4 +5,6 @@ import org.koin.dsl.module
 /**
  * @author Grigoriy Pryamov
  */
-val appModule = module { { single { } } }
+val appModule = module {
+
+}

@@ -13,7 +13,7 @@ class NewsApiConverter {
     private fun entityToModel(entity: ArticleEntity): News {
         return News(
             title = entity.title,
-            description = entity.description,
+            description = entity.description ?: "",
             link = entity.link,
             image = entity.image ?: "",
             date = DateConverter.INSTANCE.entityToModel(entity.date)

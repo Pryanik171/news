@@ -5,6 +5,8 @@ import org.koin.core.module.Module
 import org.koin.dsl.bind
 import org.koin.dsl.module
 import retrofit2.Retrofit
+import test.news.network.helper.NetworkStateManager
+import test.news.network.helper.SimpleApiUserErrorBuilder
 import test.news.network.model.ApiConfig
 
 /**
@@ -23,4 +25,6 @@ fun getApiModule(apiConfig: ApiConfig): Module = module {
             get()
         )
     } bind ApiWorker::class
+    single { NetworkStateManager(get()) }
+    factory { SimpleApiUserErrorBuilder(get(), get()) }
 }

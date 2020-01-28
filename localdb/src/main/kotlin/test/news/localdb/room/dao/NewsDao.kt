@@ -18,8 +18,17 @@ interface NewsDao : BaseDao<NewsEntity> {
     fun getAllRx(): Flowable<List<NewsEntity>>
 
     /**
+     * Взвращает все NewsEntity
+     */
+    @Query("SELECT * FROM news")
+    fun getAll(): List<NewsEntity>
+
+    /**
      * Взвращает entity по id
      */
     @Query("SELECT * FROM news WHERE id = :id")
     fun getById(id: Long): NewsEntity
+
+    @Query("DELETE FROM news")
+    fun deleteAll()
 }

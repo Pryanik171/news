@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">news</string>
+    <string name="mews_item_error_repeat_btn_text">Повторить</string>
 </resources>

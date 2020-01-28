@@ -16,7 +16,7 @@ import test.news.presentation.fragment.newslist.intercator.NewsListLoader
 val fragmentModule = module {
     scope(named<NewsListFragment>()) {
         viewModel { NewsListViewModel(get(), get()) }
-        scoped { NewsListLoader(get(), get()) }
+        scoped { NewsListLoader(get(), get(), get(), get()) }
     }
 
     scope(named<NewsDetailFragment>()) {
